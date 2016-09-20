@@ -1,5 +1,7 @@
 package demo.page.widget;
 
+import static com.codeborne.selenide.Selenide.*;
+
 import org.openqa.selenium.support.FindBy;
 
 public abstract class AbstractPage {
@@ -13,4 +15,8 @@ public abstract class AbstractPage {
 
     @FindBy(css = ".logout")
     public ElementWrapper ログアウト;
+
+    public void スクリーンショット(String fileName) {
+        screenshot(fileName);
+    }
 }
