@@ -4,8 +4,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 import org.junit.Test;
 
-import com.codeborne.selenide.Selenide;
-
 import demo.page.AccountPage;
 import demo.page.AdminPage;
 import demo.page.HomePage;
@@ -20,7 +18,7 @@ public class InitializeTest {
 
     @Test
     public void initialize() throws Exception {
-        HomePage home = Selenide.open("/", HomePage.class);
+        HomePage home = open("/", HomePage.class);
         home.ログインメニュー.をクリックする();
 
         LoginPage login = page(LoginPage.class);
