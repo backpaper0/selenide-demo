@@ -28,14 +28,14 @@ public class IssueTest {
         home.プロジェクトメニュー.をクリックする();
 
         ProjectsPage projects = page(ProjectsPage.class);
-        projects.プロジェクト("デモプロジェクト").をクリックする();
+        projects.プロジェクト一覧から("デモプロジェクト").をクリックする();
 
         ProjectPage project = page(ProjectPage.class);
         project.チケットメニュー.をクリックする();
 
         IssuesPage issues = page(IssuesPage.class);
         issues.チケット数は(0);
-        issues.スクリーンショット("1.チケット登録前の状態");
+        issues.スクリーンショットを撮って("1.チケット登録前の状態").という名前で保存する();
         issues.新しいチケット.をクリックする();
 
         NewIssuePage newIssue = page(NewIssuePage.class);
@@ -46,7 +46,7 @@ public class IssueTest {
         newIssue.開始日.へ("2016-09-27").をセットする();
         newIssue.期日.へ("2016-09-27").をセットする();
         newIssue.予定工数.へ("0.5").をセットする();
-        newIssue.スクリーンショット("2.新規チケットの入力値");
+        newIssue.スクリーンショットを撮って("2.新規チケットの入力値").という名前で保存する();
         newIssue.作成.をクリックする();
 
         IssuePage issue = page(IssuePage.class);
@@ -54,11 +54,11 @@ public class IssueTest {
 
         issues = page(IssuesPage.class);
         issues.チケット数は(1);
-        issues.スクリーンショット("3.チケット登録後の状態");
-        issues.チケット("ブラウザ自動テストのデモを行う").をクリックする();
+        issues.スクリーンショットを撮って("3.チケット登録後の状態").という名前で保存する();
+        issues.チケット一覧から("ブラウザ自動テストのデモを行う").をクリックする();
 
         issue = page(IssuePage.class);
         issue.題名.は("ブラウザ自動テストのデモを行う").と表示されている();
-        issue.スクリーンショット("4.チケットを開いた状態");
+        issue.スクリーンショットを撮って("4.チケットを開いた状態").という名前で保存する();
     }
 }

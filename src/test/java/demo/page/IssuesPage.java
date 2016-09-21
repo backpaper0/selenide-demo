@@ -18,7 +18,7 @@ public class IssuesPage extends AbstractProjectPage {
         $$("tr.issue").shouldBe(size(size));
     }
 
-    public ElementWrapper チケット(String text) {
+    public ElementWrapper チケット一覧から(String text) {
         return new ElementWrapper($(byLinkText(text)));
     }
 }

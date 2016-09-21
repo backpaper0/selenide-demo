@@ -16,7 +16,14 @@ public abstract class AbstractPage {
     @FindBy(css = ".logout")
     public ElementWrapper ログアウト;
 
-    public void スクリーンショット(String fileName) {
+    public Screenshot スクリーンショットを撮って(String fileName) {
         screenshot(fileName);
+        return Screenshot.INSTANCE;
+    }
+
+    public enum Screenshot {
+        INSTANCE;
+        public void という名前で保存する() {
+        }
     }
 }

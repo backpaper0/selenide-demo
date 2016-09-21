@@ -15,9 +15,9 @@ public class ProjectsPage extends AbstractPage {
     public ElementWrapper 新しいプロジェクト;
 
     @FindBy(css = ".project")
-    private ElementsCollection projects;
+    private ElementsCollection プロジェクト一覧;
 
-    public ElementWrapper プロジェクト(String text) {
-        return new ElementWrapper(projects.findBy(text(text)));
+    public ElementWrapper プロジェクト一覧から(String text) {
+        return new ElementWrapper(プロジェクト一覧.findBy(text(text)));
     }
 }
