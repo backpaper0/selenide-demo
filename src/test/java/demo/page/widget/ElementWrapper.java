@@ -2,6 +2,8 @@ package demo.page.widget;
 
 import static com.codeborne.selenide.Condition.*;
 
+import java.nio.file.Paths;
+
 import org.openqa.selenium.support.ui.Select;
 
 import com.codeborne.selenide.ElementsContainer;
@@ -46,6 +48,10 @@ public class ElementWrapper extends ElementsContainer {
 
         public void を選択する() {
             new Select(getSelf()).selectByVisibleText(text);
+        }
+
+        public void を添付する() {
+            getSelf().uploadFile(Paths.get(text).toFile());
         }
 
         public void と表示されている() {

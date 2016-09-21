@@ -1,6 +1,5 @@
 package demo.page;
 
-import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,7 +14,7 @@ public class IssuesPage extends AbstractProjectPage {
     public ElementWrapper 新しいチケット;
 
     public void チケット数は(int size) {
-        $$("tr.issue").shouldBe(size(size));
+        $$("tr.issue").shouldHaveSize(size);
     }
 
     public ElementWrapper チケット一覧から(String text) {

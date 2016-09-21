@@ -35,6 +35,12 @@ gradlew test --tests demo.test.IssueTest -Pselenide.baseUrl=http://192.168.99.10
 チケットを登録するテストケースでは幾つかスクリーンショットも撮っています。
 スクリーンショットは`build/reports/tests/`ディレクトリに保存されます。
 
+登録したチケットにファイル(`README.md`)を添付するテストケースもあります。
+
+```
+gradlew test --tests demo.test.UploadFileTest -Pselenide.baseUrl=http://192.168.99.100:3000
+```
+
 ## もう一度最初からテストする場合
 
 次のコマンドでRedmineを動かしているDockerコンテナを停止・削除して、最初からやり直してください。
