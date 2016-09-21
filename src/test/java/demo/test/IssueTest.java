@@ -20,7 +20,7 @@ public class IssueTest {
         home.ログインメニュー.をクリックする();
 
         LoginPage login = page(LoginPage.class);
-        login.ログインID.へ("backpaper0").をセットする();
+        login.ログインID.へ("foo").をセットする();
         login.パスワード.へ("secret5678").をセットする();
         login.ログイン.をクリックする();
 
@@ -42,7 +42,7 @@ public class IssueTest {
         newIssue.トラッカー.で("機能").を選択する();
         newIssue.題名.へ("ブラウザ自動テストのデモを行う").をセットする();
         newIssue.説明.へ("Redmineを題材にしてSelenideのデモを行う。").をセットする();
-        newIssue.担当者.で("ほにゃほにゃ うらがみ").を選択する();
+        newIssue.担当者.で("ゆーざー てすと").を選択する();
         newIssue.開始日.へ("2016-09-27").をセットする();
         newIssue.期日.へ("2016-09-27").をセットする();
         newIssue.予定工数.へ("0.5").をセットする();

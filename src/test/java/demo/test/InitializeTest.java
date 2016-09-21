@@ -45,10 +45,10 @@ public class InitializeTest {
         users.新しいユーザー.をクリックする();
 
         NewUserPage newUser = page(NewUserPage.class);
-        newUser.ログインID.へ("backpaper0").をセットする();
-        newUser.名.へ("ほにゃほにゃ").をセットする();
-        newUser.姓.へ("うらがみ").をセットする();
-        newUser.メールアドレス.へ("backpaper0@gmail.com").をセットする();
+        newUser.ログインID.へ("foo").をセットする();
+        newUser.名.へ("ゆーざー").をセットする();
+        newUser.姓.へ("てすと").をセットする();
+        newUser.メールアドレス.へ("foo@example.com").をセットする();
         newUser.言語.で("Japanese (日本語)").を選択する();
         newUser.パスワード.へ("secret5678").をセットする();
         newUser.パスワードの確認.へ("secret5678").をセットする();
