@@ -41,6 +41,20 @@ gradlew test --tests demo.test.IssueTest -Pselenide.baseUrl=http://192.168.99.10
 gradlew test --tests demo.test.UploadFileTest -Pselenide.baseUrl=http://192.168.99.100:3000
 ```
 
+登録したチケットの削除ダイアログを利用した`confirm`のテストケースもあります。
+
+削除しない場合は次のコマンドを実行してください。
+
+```
+gradlew test --tests demo.test.ConfirmTest.notDelete -Pselenide.baseUrl=http://192.168.99.100:3000
+```
+
+削除しても良い場合は次のコマンドを実行してください。
+
+```
+gradlew test --tests demo.test.ConfirmTest.delete -Pselenide.baseUrl=http://192.168.99.100:3000
+```
+
 ## もう一度最初からテストする場合
 
 次のコマンドでRedmineを動かしているDockerコンテナを停止・削除して、最初からやり直してください。

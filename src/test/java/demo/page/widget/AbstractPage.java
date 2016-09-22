@@ -21,9 +21,25 @@ public abstract class AbstractPage {
         return Screenshot.INSTANCE;
     }
 
+    public Confirm 確認ダイアログに(String text) {
+        confirm(text);
+        return Confirm.INSTANCE;
+    }
+
+    public void 確認ダイアログでキャンセルを選ぶ() {
+        switchTo().alert().dismiss();
+        switchTo().defaultContent();
+    }
+
     public enum Screenshot {
         INSTANCE;
         public void という名前で保存する() {
+        }
+    }
+
+    public enum Confirm {
+        INSTANCE;
+        public void と表示されている() {
         }
     }
 }

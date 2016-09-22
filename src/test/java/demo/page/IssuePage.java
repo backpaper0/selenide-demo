@@ -13,6 +13,8 @@ public class IssuePage extends AbstractProjectPage {
     public ElementWrapper 題名;
     @FindBy(linkText = "編集")
     public ElementWrapper 編集;
+    @FindBy(linkText = "削除")
+    public ElementWrapper 削除;
     @FindBy(name = "attachments[dummy][file]")
     public ElementWrapper ファイル;
     @FindBy(name = "commit")
