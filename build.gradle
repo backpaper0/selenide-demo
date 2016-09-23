@@ -17,6 +17,4 @@ dependencies {
     testCompile 'org.slf4j:slf4j-jdk14:1.7.21'
 }
 
-test {
-    systemProperty 'selenide.baseUrl', project.hasProperty('selenide.baseUrl') ? project.getProperty('selenide.baseUrl') : 'http://localhost:8080'
-}
+System.properties.find { it.key =~ /selenide/ }.each { test.systemProperty it.key, it.value }
