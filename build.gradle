@@ -17,4 +17,11 @@ dependencies {
     testCompile 'org.slf4j:slf4j-jdk14:1.7.21'
 }
 
-System.properties.find { it.key =~ /selenide/ }.each { test.systemProperty it.key, it.value }
+def f = file('.local.properties')
+if (f.exists()) {
+    def p = new Properties()
+    f.withReader {
+        p.load(it)
+    }
+    p.each { test.systemProperty it.key, it.value }
+}
