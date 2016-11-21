@@ -4,8 +4,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 import org.junit.Test;
 
-import com.codeborne.selenide.Configuration;
-
 import demo.page.HomePage;
 import demo.page.IssuePage;
 import demo.page.IssuesPage;
@@ -79,9 +77,5 @@ public class ConfirmTest {
 
         issues = page(IssuesPage.class);
         issues.チケット数は(1);
-    }
-
-    public ConfirmTest() {
-        Configuration.baseUrl = "http://192.168.99.100:3000";
     }
 }
