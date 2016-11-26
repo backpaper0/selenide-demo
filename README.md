@@ -18,7 +18,7 @@ docker run -d -p 3000:3000 --name=myredmine redmine && docker logs -f myredmine
 [2016-09-20 12:41:24] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
 ```
 
-Selenideに渡すシステムプロパティを`.local.properties`という名前のファイルで設定することができます。
+Selenideに渡すシステムプロパティを`.local.properties`という名前のファイルで設定できるようにしています。
 `.local.properties`の例は次の通りです。
 
 ```
@@ -71,6 +71,38 @@ gradlew test --tests demo.test.ConfirmTest.delete
 ```
 docker stop myredmine && docker rm myredmine
 ```
+
+## Dockerを使う
+
+例えば[selenium/standalone-chrome](https://hub.docker.com/r/selenium/standalone-chrome/)を使ってテストを実行してみましょう。
+
+まず`selenium/standalone-chrome`に日本語フォントをインストールしたイメージを作ります。
+`docker`ディレクトリで`docker build`を行ってください。
+
+```
+cd docker
+docker build -t backpaper0/standalone-chrome .
+```
+
+イメージが出来たらコンテナを起動します。
+`--link`オプションでRedmineのコンテナを参照できるようにしています。
+
+```
+docker run -d -p 4444:4444 --name=mychrome --link myredmine backpaper0/standalone-chrome && docker logs -f mychrome
+```
+
+次にSelenideの設定を行います。
+先述の通り`.local.properties`でシステムプロパティを設定できます。
+
+```
+# Dockerコンテナ内からRedmineを参照するためのURL
+selenide.baseUrl=http://myredmine:3000
+browser=chrome
+# Selenium ServerのURL
+remote=http://localhost:4444/wd/hub
+```
+
+あとは`gradlew`でテストを実行するだけです。
 
 ## License
 
