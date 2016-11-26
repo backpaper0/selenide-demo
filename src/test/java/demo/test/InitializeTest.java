@@ -35,6 +35,11 @@ public class InitializeTest {
         password.適用.click();
 
         AccountPage account = page(AccountPage.class);
+        new Select(account.言語).selectByVisibleText("Japanese (日本語)");
+        new Select(account.タイムゾーン).selectByVisibleText("(GMT+09:00) Osaka");
+        account.保存.click();
+
+        account = page(AccountPage.class);
         account.管理メニュー.click();
 
         AdminPage admin = page(AdminPage.class);
@@ -50,6 +55,7 @@ public class InitializeTest {
         newUser.姓.val("てすと");
         newUser.メールアドレス.val("foo@example.com");
         new Select(newUser.言語).selectByVisibleText("Japanese (日本語)");
+        new Select(newUser.タイムゾーン).selectByVisibleText("(GMT+09:00) Osaka");
         newUser.パスワード.val("secret5678");
         newUser.パスワードの確認.val("secret5678");
         newUser.作成.click();

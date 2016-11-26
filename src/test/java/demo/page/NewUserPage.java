@@ -18,6 +18,8 @@ public class NewUserPage extends AbstractPage {
     public SelenideElement メールアドレス;
     @FindBy(name = "user[language]")
     public SelenideElement 言語;
+    @FindBy(name = "pref[time_zone]")
+    public SelenideElement タイムゾーン;
 
     @FindBy(name = "user[password]")
     public SelenideElement パスワード;
