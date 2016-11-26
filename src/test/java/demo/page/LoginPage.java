@@ -2,15 +2,16 @@ package demo.page;
 
 import org.openqa.selenium.support.FindBy;
 
+import com.codeborne.selenide.SelenideElement;
+
 import demo.page.widget.AbstractPage;
-import demo.page.widget.ElementWrapper;
 
 public class LoginPage extends AbstractPage {
 
     @FindBy(name = "username")
-    public ElementWrapper ログインID;
+    public SelenideElement ログインID;
     @FindBy(name = "password")
-    public ElementWrapper パスワード;
+    public SelenideElement パスワード;
     @FindBy(name = "login")
-    public ElementWrapper ログイン;
+    public SelenideElement ログイン;
 }

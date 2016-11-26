@@ -2,17 +2,18 @@ package demo.page;
 
 import org.openqa.selenium.support.FindBy;
 
+import com.codeborne.selenide.SelenideElement;
+
 import demo.page.widget.AbstractPage;
-import demo.page.widget.ElementWrapper;
 
 public class PasswordPage extends AbstractPage {
 
     @FindBy(name = "password")
-    public ElementWrapper パスワード;
+    public SelenideElement パスワード;
     @FindBy(name = "new_password")
-    public ElementWrapper 新しいパスワード;
+    public SelenideElement 新しいパスワード;
     @FindBy(name = "new_password_confirmation")
-    public ElementWrapper パスワードの確認;
+    public SelenideElement パスワードの確認;
     @FindBy(name = "commit")
-    public ElementWrapper 適用;
+    public SelenideElement 適用;
 }

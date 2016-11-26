@@ -1,8 +1,10 @@
 package demo.test;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
 
 import org.junit.Test;
+import org.openqa.selenium.support.ui.Select;
 
 import demo.page.AccountPage;
 import demo.page.AdminPage;
@@ -19,48 +21,48 @@ public class InitializeTest {
     @Test
     public void initialize() throws Exception {
         HomePage home = open("/", HomePage.class);
-        home.ログインメニュー.をクリックする();
+        home.ログインメニュー.click();
 
         LoginPage login = page(LoginPage.class);
-        login.ログインID.へ("admin").をセットする();
-        login.パスワード.へ("admin").をセットする();
-        login.ログイン.をクリックする();
+        login.ログインID.val("admin");
+        login.パスワード.val("admin");
+        login.ログイン.click();
 
         PasswordPage password = page(PasswordPage.class);
-        password.パスワード.へ("admin").をセットする();
-        password.新しいパスワード.へ("secret1234").をセットする();
-        password.パスワードの確認.へ("secret1234").をセットする();
-        password.適用.をクリックする();
+        password.パスワード.val("admin");
+        password.新しいパスワード.val("secret1234");
+        password.パスワードの確認.val("secret1234");
+        password.適用.click();
 
         AccountPage account = page(AccountPage.class);
-        account.管理メニュー.をクリックする();
+        account.管理メニュー.click();
 
         AdminPage admin = page(AdminPage.class);
-        admin.デフォルト設定をロード.をクリックする();
-        admin.ユーザー.をクリックする();
+        admin.デフォルト設定をロード.click();
+        admin.ユーザー.click();
 
         UsersPage users = page(UsersPage.class);
-        users.新しいユーザー.をクリックする();
+        users.新しいユーザー.click();
 
         NewUserPage newUser = page(NewUserPage.class);
-        newUser.ログインID.へ("foo").をセットする();
-        newUser.名.へ("ゆーざー").をセットする();
-        newUser.姓.へ("てすと").をセットする();
-        newUser.メールアドレス.へ("foo@example.com").をセットする();
-        newUser.言語.で("Japanese (日本語)").を選択する();
-        newUser.パスワード.へ("secret5678").をセットする();
-        newUser.パスワードの確認.へ("secret5678").をセットする();
-        newUser.作成.をクリックする();
-        newUser.プロジェクトメニュー.をクリックする();
+        newUser.ログインID.val("foo");
+        newUser.名.val("ゆーざー");
+        newUser.姓.val("てすと");
+        newUser.メールアドレス.val("foo@example.com");
+        new Select(newUser.言語).selectByVisibleText("Japanese (日本語)");
+        newUser.パスワード.val("secret5678");
+        newUser.パスワードの確認.val("secret5678");
+        newUser.作成.click();
+        newUser.プロジェクトメニュー.click();
 
         ProjectsPage projects = page(ProjectsPage.class);
-        projects.新しいプロジェクト.をクリックする();
+        projects.新しいプロジェクト.click();
 
         NewProjectPage newProject = page(NewProjectPage.class);
-        newProject.名称.へ("デモプロジェクト").をセットする();
-        newProject.識別子.へ("demo").をセットする();
-        newProject.作成.をクリックする();
+        newProject.名称.val("デモプロジェクト");
+        newProject.識別子.val("demo");
+        newProject.作成.click();
 
-        newProject.ログアウト.をクリックする();
+        newProject.ログアウト.click();
     }
 }

@@ -1,45 +1,18 @@
 package demo.page.widget;
 
-import static com.codeborne.selenide.Selenide.*;
-
 import org.openqa.selenium.support.FindBy;
+
+import com.codeborne.selenide.SelenideElement;
 
 public abstract class AbstractPage {
 
     @FindBy(css = ".projects")
-    public ElementWrapper プロジェクトメニュー;
+    public SelenideElement プロジェクトメニュー;
     @FindBy(css = ".administration")
-    public ElementWrapper 管理メニュー;
+    public SelenideElement 管理メニュー;
     @FindBy(css = ".login")
-    public ElementWrapper ログインメニュー;
+    public SelenideElement ログインメニュー;
 
     @FindBy(css = ".logout")
-    public ElementWrapper ログアウト;
-
-    public Screenshot スクリーンショットを撮って(String fileName) {
-        screenshot(fileName);
-        return Screenshot.INSTANCE;
-    }
-
-    public Confirm 確認ダイアログに(String text) {
-        confirm(text);
-        return Confirm.INSTANCE;
-    }
-
-    public void 確認ダイアログでキャンセルを選ぶ() {
-        switchTo().alert().dismiss();
-        switchTo().defaultContent();
-    }
-
-    public enum Screenshot {
-        INSTANCE;
-        public void という名前で保存する() {
-        }
-    }
-
-    public enum Confirm {
-        INSTANCE;
-        public void と表示されている() {
-        }
-    }
+    public SelenideElement ログアウト;
 }

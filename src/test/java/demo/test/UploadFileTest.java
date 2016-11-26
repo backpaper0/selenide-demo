@@ -1,8 +1,13 @@
 package demo.test;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
+
+import java.nio.file.Paths;
 
 import org.junit.Test;
+
+import com.codeborne.selenide.Selenide;
 
 import demo.page.HomePage;
 import demo.page.IssuePage;
@@ -16,35 +21,35 @@ public class UploadFileTest {
     @Test
     public void uploadFile() throws Exception {
         HomePage home = open("/", HomePage.class);
-        home.ログインメニュー.をクリックする();
+        home.ログインメニュー.click();
 
         LoginPage login = page(LoginPage.class);
-        login.ログインID.へ("foo").をセットする();
-        login.パスワード.へ("secret5678").をセットする();
-        login.ログイン.をクリックする();
+        login.ログインID.val("foo");
+        login.パスワード.val("secret5678");
+        login.ログイン.click();
 
         home = page(HomePage.class);
-        home.プロジェクトメニュー.をクリックする();
+        home.プロジェクトメニュー.click();
 
         ProjectsPage projects = page(ProjectsPage.class);
-        projects.プロジェクト一覧から("デモプロジェクト").をクリックする();
+        projects.プロジェクト一覧から("デモプロジェクト").click();
 
         ProjectPage project = page(ProjectPage.class);
-        project.チケットメニュー.をクリックする();
+        project.チケットメニュー.click();
 
         IssuesPage issues = page(IssuesPage.class);
         issues.チケット数は(1);
-        issues.チケット一覧から("ブラウザ自動テストのデモを行う").をクリックする();
+        issues.チケット一覧から("ブラウザ自動テストのデモを行う").click();
 
         IssuePage issue = page(IssuePage.class);
         issue = page(IssuePage.class);
         issue.添付ファイル数は(0);
-        issue.スクリーンショットを撮って("5.ファイルを添付する前").という名前で保存する();
-        issue.編集.をクリックする();
+        Selenide.screenshot("5.ファイルを添付する前");
+        issue.編集.click();
 
-        issue.ファイル.へ("README.md").を添付する();
-        issue.送信.をクリックする();
+        issue.ファイル.uploadFile(Paths.get("README.md").toFile());
+        issue.送信.click();
         issue.添付ファイル数は(1);
-        issue.スクリーンショットを撮って("6.ファイルを添付した後").という名前で保存する();
+        Selenide.screenshot("6.ファイルを添付した後");
     }
 }
