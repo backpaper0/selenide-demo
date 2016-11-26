@@ -8,4 +8,5 @@
 /*.ipr
 /*.iws
 /src/main/webapp/WEB-INF/classes/
-
+/chromedriver
+/geckodriver
