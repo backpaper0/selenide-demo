@@ -1,0 +1,8 @@
+selenide.baseUrl=http://localhost:3000
+browser=chrome
+webdriver.chrome.driver=chromedriver
+
+#selenide.baseUrl=http://myredmine:3000
+#browser=chrome
+#remote=http://localhost:4444/wd/hub
+
