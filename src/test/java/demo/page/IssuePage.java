@@ -21,9 +21,7 @@ public class IssuePage extends AbstractProjectPage {
     public SelenideElement 送信;
 
     @FindBy(css = ".attachments a.icon-attachment")
-    private ElementsCollection 添付ファイル一覧;
-
-    public void 添付ファイル数は(int size) {
-        添付ファイル一覧.shouldHaveSize(size);
-    }
+    public ElementsCollection 添付ファイル一覧;
+    @FindBy(name = "attachments[1][description]")
+    public SelenideElement 説明;
 }

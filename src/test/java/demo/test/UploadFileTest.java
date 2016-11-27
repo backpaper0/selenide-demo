@@ -1,5 +1,7 @@
 package demo.test;
 
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 
@@ -43,13 +45,16 @@ public class UploadFileTest {
 
         IssuePage issue = page(IssuePage.class);
         issue = page(IssuePage.class);
-        issue.添付ファイル数は(0);
+        issue.添付ファイル一覧.shouldBe(size(0));
         Selenide.screenshot("5.ファイルを添付する前");
         issue.編集.click();
 
         issue.ファイル.uploadFile(Paths.get("README.md").toFile());
+        issue.説明.shouldBe(visible);
         issue.送信.click();
-        issue.添付ファイル数は(1);
+
+        issue = page(IssuePage.class);
+        issue.添付ファイル一覧.shouldBe(size(1));
         Selenide.screenshot("6.ファイルを添付した後");
     }
 }
