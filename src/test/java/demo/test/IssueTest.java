@@ -25,7 +25,7 @@ public class IssueTest {
         home.ログインメニュー.click();
 
         LoginPage login = page(LoginPage.class);
-        login.ログインID.val("foo");
+        login.ログインID.val("backpaper0");
         login.パスワード.val("secret5678");
         login.ログイン.click();
 
@@ -47,7 +47,7 @@ public class IssueTest {
         new Select(newIssue.トラッカー).selectByVisibleText("機能");
         newIssue.題名.val("ブラウザ自動テストのデモを行う");
         newIssue.説明.val("Redmineを題材にしてSelenideのデモを行う。");
-        new Select(newIssue.担当者).selectByVisibleText("ゆーざー てすと");
+        new Select(newIssue.担当者).selectByVisibleText("うらがみ たいち");
         //workaround for chrome
         //newIssue.開始日.sendKeys("0020160927");
         //newIssue.期日.sendKeys("0020160927");

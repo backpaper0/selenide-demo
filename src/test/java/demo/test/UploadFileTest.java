@@ -24,7 +24,7 @@ public class UploadFileTest {
         home.ログインメニュー.click();
 
         LoginPage login = page(LoginPage.class);
-        login.ログインID.val("foo");
+        login.ログインID.val("backpaper0");
         login.パスワード.val("secret5678");
         login.ログイン.click();
 

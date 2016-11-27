@@ -50,9 +50,9 @@ public class InitializeTest {
         users.新しいユーザー.click();
 
         NewUserPage newUser = page(NewUserPage.class);
-        newUser.ログインID.val("foo");
-        newUser.名.val("ゆーざー");
-        newUser.姓.val("てすと");
+        newUser.ログインID.val("backpaper0");
+        newUser.名.val("うらがみ");
+        newUser.姓.val("たいち");
         newUser.メールアドレス.val("foo@example.com");
         new Select(newUser.言語).selectByVisibleText("Japanese (日本語)");
         new Select(newUser.タイムゾーン).selectByVisibleText("(GMT+09:00) Osaka");
