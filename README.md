@@ -22,10 +22,15 @@ Selenideに渡すシステムプロパティを`.local.properties`という名�
 `.local.properties`の例は次の通りです。
 
 ```
-selenide.baseUrl=http://192.168.99.100:3000
-browser=ie
-webdriver.ie.driver=IEDriverServer.exe
+selenide.baseUrl=http://localhost:3000
+browser=chrome
+webdriver.chrome.driver=chromedriver
 ```
+
+`webdriver.chrome.driver`はChromeDriverへのパスです。
+ChromeDriverは次のウェブサイトから入手してください。
+
+* https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 ## テスト実行
 
